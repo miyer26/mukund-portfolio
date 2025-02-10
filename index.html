@@ -9,29 +9,41 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<style>
-		#main article {
-			display: none;
-			margin-top: 2rem;
-			opacity: 0;
-			transition: opacity 0.3s ease-in-out;
-		}
+	/* Add these styles to your main.css or in a style tag in your index.html */
+	#main {
+	margin-top: 2rem !important;
+	opacity: 1 !important;
+	display: block !important;
+	}
 
-		#main article.active {
-			display: block;
-			opacity: 1;
-			position: relative;
-			z-index: 3;
-		}
+	#main article {
+	display: none;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	background: rgba(27, 31, 34, 0.85);
+	padding: 2.5rem;
+	max-width: 40rem;
+	margin: 2rem auto;
+	border-radius: 4px;
+	}
 
-		body.is-article-visible #main article {
-			display: none;
-		}
+	#main article.active {
+	display: block;
+	opacity: 1;
+	transform: translateY(0);
+	}
 
-		body.is-article-visible #main article.active {
-			display: block;
-		}
-	</style>
+	#header {
+	padding-bottom: 2rem;
+	transform: none !important;
+	}
+
+	#footer {
+	position: relative;
+	bottom: 0;
+	margin-top: 2rem;
+	}
 </head>
 
 <body class="is-preload">
@@ -159,8 +171,6 @@
 			var $window = $(window),
 				$body = $('body'),
 				$wrapper = $('#wrapper'),
-				$header = $('#header'),
-				$footer = $('#footer'),
 				$main = $('#main'),
 				$main_articles = $main.children('article');
 
@@ -172,31 +182,14 @@
 				// If article is already active and visible
 				if ($article.hasClass('active')) {
 					// Hide article
-					$body.removeClass('is-article-visible');
 					$article.removeClass('active');
-					$main_articles.removeClass('active');
 				} else {
 					// Show article
-					$body.addClass('is-article-visible');
 					$main_articles.removeClass('active');
 					$article.addClass('active');
 				}
 
 				event.preventDefault();
-			});
-
-			// Articles
-			$main_articles.each(function () {
-				var $this = $(this);
-
-				// Close function
-				$('<div class="close">Close</div>')
-					.appendTo($this)
-					.on('click', function () {
-						$body.removeClass('is-article-visible');
-						$this.removeClass('active');
-					});
-
 			});
 
 			// Events
