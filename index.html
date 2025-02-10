@@ -9,61 +9,6 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	<style>
-		#main {
-			position: absolute;
-			top: 100%;
-			/* Position below the header */
-			left: 50%;
-			transform: translateX(-50%);
-			margin-top: 2rem;
-			width: 100%;
-			max-width: 40rem;
-		}
-
-		#main article {
-			background-color: #1b1f22;
-			/* Solid background instead of semi-transparent */
-			position: relative;
-			margin: 0 auto;
-			opacity: 0;
-			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
-		}
-
-		#main article.active {
-			opacity: 1;
-			transform: translateY(0);
-		}
-
-		/* Ensure wrapper covers full height */
-		#wrapper {
-			min-height: 100vh;
-			padding-bottom: 6rem;
-			/* Extra padding to accommodate articles */
-		}
-
-		/* Adjust footer positioning */
-		#footer {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			padding: 1rem;
-			background: #1b1f22;
-			z-index: 2;
-		}
-
-		/* Ensure BG covers full page */
-		#bg {
-			min-height: 100vh;
-			position: fixed;
-		}
-
-		/* Hide overflow when article is visible */
-		body.is-article-visible {
-			overflow-y: auto;
-		}
-	</style>
 </head>
 
 <body class="is-preload">
