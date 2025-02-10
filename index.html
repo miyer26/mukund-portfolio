@@ -10,21 +10,26 @@
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 	<style>
-		#main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		article {
+		#main article {
 			display: none;
-			margin-top: 2rem !important;
+			margin-top: 2rem;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
 		}
 
-		article.active {
-			display: block !important;
-			opacity: 1 !important;
-			transform: translateY(0) !important;
+		#main article.active {
+			display: block;
+			opacity: 1;
+			position: relative;
+			z-index: 3;
+		}
+
+		body.is-article-visible #main article {
+			display: none;
+		}
+
+		body.is-article-visible #main article.active {
+			display: block;
 		}
 	</style>
 </head>
@@ -149,33 +154,60 @@
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const links = document.querySelectorAll('nav a');
-			const articles = document.querySelectorAll('article');
+		(function ($) {
+			var $window = $(window),
+				$body = $('body'),
+				$wrapper = $('#wrapper'),
+				$header = $('#header'),
+				$footer = $('#footer'),
+				$main = $('#main'),
+				$main_articles = $main.children('article');
 
-			links.forEach(link => {
-				link.addEventListener('click', function (e) {
-					e.preventDefault();
-					const targetId = this.getAttribute('href').substring(1);
+			// Handle link clicks
+			$('nav a').on('click', function (event) {
+				var href = $(this).attr('href');
+				var $article = $(href);
 
-					articles.forEach(article => {
-						if (article.id === targetId) {
-							if (article.classList.contains('active')) {
-								article.classList.remove('active');
-							} else {
-								article.classList.add('active');
-							}
-						} else {
-							article.classList.remove('active');
-						}
-					});
-				});
+				// If article is already active and visible
+				if ($article.hasClass('active')) {
+					// Hide article
+					$body.removeClass('is-article-visible');
+					$article.removeClass('active');
+					$main_articles.removeClass('active');
+				} else {
+					// Show article
+					$body.addClass('is-article-visible');
+					$main_articles.removeClass('active');
+					$article.addClass('active');
+				}
+
+				event.preventDefault();
 			});
-		});
-	</script>
 
+			// Articles
+			$main_articles.each(function () {
+				var $this = $(this);
+
+				// Close function
+				$('<div class="close">Close</div>')
+					.appendTo($this)
+					.on('click', function () {
+						$body.removeClass('is-article-visible');
+						$this.removeClass('active');
+					});
+
+			});
+
+			// Events
+			$window.on('load', function () {
+				setTimeout(function () {
+					$body.removeClass('is-preload');
+				}, 100);
+			});
+
+		})(jQuery);
+	</script>
 </body>
 
 </html>
