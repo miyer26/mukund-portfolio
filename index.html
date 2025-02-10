@@ -9,41 +9,44 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
-	/* Add these styles to your main.css or in a style tag in your index.html */
-	#main {
-	margin-top: 2rem !important;
-	opacity: 1 !important;
-	display: block !important;
-	}
+	<style>
+		#main {
+			position: relative;
+			margin-top: 2rem !important;
+			opacity: 1 !important;
+			display: block !important;
+		}
 
-	#main article {
-	display: none;
-	opacity: 0;
-	transform: translateY(20px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
-	background: rgba(27, 31, 34, 0.85);
-	padding: 2.5rem;
-	max-width: 40rem;
-	margin: 2rem auto;
-	border-radius: 4px;
-	}
+		#main article {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			opacity: 0;
+			width: 100%;
+			max-width: 40rem;
+			margin: 0 auto;
+			transition: opacity 0.3s ease;
+			background: none;
+		}
 
-	#main article.active {
-	display: block;
-	opacity: 1;
-	transform: translateY(0);
-	}
+		#main article.active {
+			display: block;
+			opacity: 1;
+		}
 
-	#header {
-	padding-bottom: 2rem;
-	transform: none !important;
-	}
+		#header {
+			padding-bottom: 2rem;
+			transform: none !important;
+		}
 
-	#footer {
-	position: relative;
-	bottom: 0;
-	margin-top: 2rem;
-	}
+		#main article {
+			padding: 0;
+			border-radius: 0;
+			box-shadow: none;
+		}
+	</style>
 </head>
 
 <body class="is-preload">

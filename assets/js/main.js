@@ -1,4 +1,3 @@
-// Replace the entire contents of main.js with this code
 (function ($) {
 
 	var $window = $(window),
@@ -52,9 +51,8 @@
 		if (locked) return;
 		locked = true;
 
-		// Article already visible? Just switch articles.
+		// Article already visible? Hide it
 		if ($article.hasClass('active')) {
-			// Hide article
 			$article.removeClass('active');
 			setTimeout(function () {
 				$article.hide();
@@ -62,14 +60,10 @@
 			}, delay);
 		} else {
 			// Hide any active article
-			var $currentArticle = $main_articles.filter('.active');
-			$currentArticle.removeClass('active');
-			$currentArticle.hide();
+			$main_articles.removeClass('active').hide();
 
 			// Show new article
-			$main.show();
-			$article.show();
-			$article.addClass('active');
+			$article.show().addClass('active');
 
 			setTimeout(function () {
 				locked = false;
