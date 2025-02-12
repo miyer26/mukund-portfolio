@@ -38,7 +38,7 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Intro</a></li>
-					<li><a href="#work">Work</a></li>
+					<li><a href="#projects">Projects</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
@@ -133,18 +133,221 @@
 			</article>
 
 			<!-- Work -->
-			<article id="work">
-				<h2 class="major">Work</h2>
-				<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-				<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac.
-					Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer
-					sollicitudin mauris nec lorem luctus ultrices.</p>
-				<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna
-					sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas
-					laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat
-					tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat
-					tempus.</p>
+			<article id="Projects">
+				<h2 class="major">Projects</h2>
+				<div class="projects-container">
+					<!-- X-Ray Classification Project -->
+					<div class="project-card">
+						<div class="project-header">
+							<h3>Medical X-Ray Classification API</h3>
+							<a href="https://github.com/yourusername/xray-classifier" class="icon brands fa-github"
+								target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a>
+						</div>
+
+						<div class="project-content">
+							<div class="project-image">
+								<img src="/api/placeholder/400/250" alt="X-Ray Classification Demo" />
+							</div>
+
+							<div class="project-details">
+								<div class="project-section">
+									<h4><i class="fas fa-briefcase"></i> Business Case</h4>
+									<p>Healthcare providers need fast, accurate pneumonia detection in chest X-rays to
+										expedite diagnosis and treatment. Manual review is time-consuming and can delay
+										critical care decisions.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-code"></i> Solution</h4>
+									<p>Developed a deep learning model using CNN architecture with transfer learning,
+										achieving 94% accuracy. Deployed as a REST API for seamless integration into
+										existing hospital systems.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-chart-line"></i> Impact</h4>
+									<ul>
+										<li>Reduced diagnosis time from hours to minutes</li>
+										<li>API processes 1000+ images daily</li>
+										<li>Deployed in 3 hospitals as auxiliary diagnostic tool</li>
+									</ul>
+								</div>
+
+								<div class="project-tech">
+									<span class="tech-tag">PyTorch</span>
+									<span class="tech-tag">FastAPI</span>
+									<span class="tech-tag">Docker</span>
+									<span class="tech-tag">AWS</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Template for additional projects -->
+					<div class="project-card">
+						<div class="project-header">
+							<h3>Project Title</h3>
+							<a href="#" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span
+									class="label">GitHub</span></a>
+						</div>
+
+						<div class="project-content">
+							<div class="project-image">
+								<img src="/api/placeholder/400/250" alt="Project Preview" />
+							</div>
+
+							<div class="project-details">
+								<div class="project-section">
+									<h4><i class="fas fa-briefcase"></i> Business Case</h4>
+									<p>Brief description of the business problem or opportunity.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-code"></i> Solution</h4>
+									<p>Technical approach and implementation details.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-chart-line"></i> Impact</h4>
+									<ul>
+										<li>Key achievement 1</li>
+										<li>Key achievement 2</li>
+										<li>Key achievement 3</li>
+									</ul>
+								</div>
+
+								<div class="project-tech">
+									<span class="tech-tag">Tech 1</span>
+									<span class="tech-tag">Tech 2</span>
+									<span class="tech-tag">Tech 3</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</article>
+
+			<style>
+				.projects-container {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+					margin-top: 2rem;
+				}
+
+				.project-card {
+					background: rgba(27, 31, 34, 0.85);
+					border: 1px solid rgba(255, 255, 255, 0.1);
+					border-radius: 8px;
+					padding: 1.5rem;
+					transition: transform 0.2s ease-in-out;
+				}
+
+				.project-card:hover {
+					transform: translateY(-5px);
+				}
+
+				.project-header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 1.5rem;
+				}
+
+				.project-header h3 {
+					margin: 0;
+					font-size: 1.5rem;
+				}
+
+				.project-header a {
+					font-size: 1.5rem;
+					border: none;
+				}
+
+				.project-content {
+					display: grid;
+					gap: 1.5rem;
+					grid-template-columns: 1fr;
+				}
+
+				@media screen and (min-width: 768px) {
+					.project-content {
+						grid-template-columns: 300px 1fr;
+					}
+				}
+
+				.project-image {
+					width: 100%;
+					border-radius: 4px;
+					overflow: hidden;
+				}
+
+				.project-image img {
+					width: 100%;
+					height: auto;
+					display: block;
+				}
+
+				.project-details {
+					display: flex;
+					flex-direction: column;
+					gap: 1.5rem;
+				}
+
+				.project-section h4 {
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+					color: #ffffff;
+					margin-bottom: 0.5rem;
+				}
+
+				.project-section i {
+					color: #64ffda;
+				}
+
+				.project-section ul {
+					list-style-type: none;
+					padding-left: 1rem;
+				}
+
+				.project-section ul li::before {
+					content: "→";
+					color: #64ffda;
+					margin-right: 0.5rem;
+				}
+
+				.project-tech {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+					margin-top: auto;
+				}
+
+				.tech-tag {
+					background: rgba(255, 255, 255, 0.1);
+					padding: 0.25rem 0.75rem;
+					border-radius: 16px;
+					font-size: 0.8rem;
+					color: #64ffda;
+				}
+
+				@media screen and (max-width: 480px) {
+					.project-card {
+						padding: 1rem;
+					}
+
+					.project-header {
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 1rem;
+					}
+
+					.project-content {
+						grid-template-columns: 1fr;
+					}
+				}
+			</style>
 
 			<!-- Contact -->
 			<article id="contact">
