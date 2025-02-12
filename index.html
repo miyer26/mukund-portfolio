@@ -68,7 +68,7 @@
 
 				.skill_heading i {
 					font-size: 1.2em;
-					color: #f6f3f3;
+					color: #aff374;
 					/* Adjust color as needed */
 				}
 
@@ -128,11 +128,11 @@
 
 				<!-- Personal Touch -->
 				<h3>Beyond Data Science</h3>
-				<p>When I'm not coding, you can find me playing tennis, playing music or trying out a new cafe!
+				<p>When I'm not coding, you can find me playing tennis, practicing music or exploring cafes!
 				</p>
 			</article>
 
-			<!-- Work -->
+			<!-- Projects -->
 			<article id="projects">
 				<h2 class="major">Projects</h2>
 				<div class="projects-container">
@@ -152,24 +152,23 @@
 							<div class="project-details">
 								<div class="project-section">
 									<h4><i class="fas fa-briefcase"></i> Business Case</h4>
-									<p>Healthcare providers need fast, accurate pneumonia detection in chest X-rays to
-										expedite diagnosis and treatment. Manual review is time-consuming and can delay
-										critical care decisions.</p>
+									<p>Healthcare providers need a fast, accurate, and seamless way to detect pneumonia
+										in chest X-rays. Manual review is time-consuming and can delay critical care
+										decisions.</p>
 								</div>
 
 								<div class="project-section">
 									<h4><i class="fas fa-code"></i> Solution</h4>
-									<p>Developed a deep learning model using CNN architecture with transfer learning,
-										achieving 94% accuracy. Deployed as a REST API for seamless integration into
-										existing hospital systems.</p>
+									<p>Developed a deep learning model using a CNN with transfer learning, achieving 94%
+										accuracy. Deployed as a REST API for easy integration into hospital systems.</p>
 								</div>
 
 								<div class="project-section">
 									<h4><i class="fas fa-chart-line"></i> Impact</h4>
 									<ul>
 										<li>Reduced diagnosis time from hours to minutes</li>
-										<li>API processes 1000+ images daily</li>
-										<li>Deployed in 3 hospitals as auxiliary diagnostic tool</li>
+										<li>API can classify X-rays in seconds</li>
+										<li>Dockerized for effortless deployment across various systems</li>
 									</ul>
 								</div>
 
@@ -183,10 +182,10 @@
 						</div>
 					</div>
 
-					<!-- Template for additional projects -->
+					<!-- PDF Chat -->
 					<div class="project-card">
 						<div class="project-header">
-							<h3>Project Title</h3>
+							<h3>PDF Chat</h3>
 							<a href="#" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span
 									class="label">GitHub</span></a>
 						</div>
@@ -199,27 +198,80 @@
 							<div class="project-details">
 								<div class="project-section">
 									<h4><i class="fas fa-briefcase"></i> Business Case</h4>
-									<p>Brief description of the business problem or opportunity.</p>
+									<p>Finding specific information in a PDF can be tedious. This project enables users
+										to query a document and receive relevant answers instantly.</p>
 								</div>
 
 								<div class="project-section">
 									<h4><i class="fas fa-code"></i> Solution</h4>
-									<p>Technical approach and implementation details.</p>
+									<p>Implemented a Retrieval-Augmented Generation (RAG) system that chunks the
+										document, stores embeddings in a vector database, and retrieves context-specific
+										answers using an LLM. The interaction between the LLM and retrieved content is
+										orchestrated via LangChain, with a user-friendly interface built in Streamlit.
+									</p>
 								</div>
 
 								<div class="project-section">
 									<h4><i class="fas fa-chart-line"></i> Impact</h4>
 									<ul>
-										<li>Key achievement 1</li>
-										<li>Key achievement 2</li>
-										<li>Key achievement 3</li>
+										<li>Users can quickly query PDFs via an intuitive Streamlit UI</li>
+										<li>Minimized LLM hallucinations by providing precise contextual retrieval</li>
 									</ul>
 								</div>
 
 								<div class="project-tech">
-									<span class="tech-tag">Tech 1</span>
-									<span class="tech-tag">Tech 2</span>
-									<span class="tech-tag">Tech 3</span>
+									<span class="tech-tag">RAG</span>
+									<span class="tech-tag">LLM</span>
+									<span class="tech-tag">NLP</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reddit API -->
+					<div class="project-card">
+						<div class="project-header">
+							<h3>Reddit Comments Aggregator</h3>
+							<a href="#" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span
+									class="label">GitHub</span></a>
+						</div>
+
+						<div class="project-content">
+							<div class="project-image">
+								<img src="/api/placeholder/400/250" alt="Project Preview" />
+							</div>
+
+							<div class="project-details">
+								<div class="project-section">
+									<h4><i class="fas fa-briefcase"></i> Business Case</h4>
+									<p>Finding high-quality recommendations on Reddit can be overwhelming, as users
+										often need to browse multiple subreddits and sift through extensive comment
+										threads. A centralized, curated recommendation system would simplify this
+										process.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-code"></i> Solution</h4>
+									<p>Leveraged an LLM to augment user queries before passing them to the Reddit API
+										for retrieving the most relevant responses. A secondary LLM then filters and
+										curates the best recommendations, providing them alongside their original
+										sources. The API is built with FastAPI and served using Uvicorn. Additionally, a
+										BERT model analyzes sentiment for each comment.</p>
+								</div>
+
+								<div class="project-section">
+									<h4><i class="fas fa-chart-line"></i> Impact</h4>
+									<ul>
+										<li>Users receive high-quality, curated Reddit recommendations within seconds
+										</li>
+										<li>Sentiment analysis enhances result ranking</li>
+									</ul>
+								</div>
+
+								<div class="project-tech">
+									<span class="tech-tag">FastAPI</span>
+									<span class="tech-tag">LLM</span>
+									<span class="tech-tag">NLP</span>
 								</div>
 							</div>
 						</div>
@@ -236,7 +288,7 @@
 				}
 
 				.project-card {
-					background: rgba(27, 31, 34, 0.85);
+					background: rgba(27, 31, 34, 0.537);
 					border: 1px solid rgba(255, 255, 255, 0.1);
 					border-radius: 8px;
 					padding: 1.5rem;
